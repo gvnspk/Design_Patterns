@@ -28,4 +28,5 @@ jobs:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_EVENT_PATH: ${{ github.event_path }}
-        run: python scripts/reviewer.py
+        run: | 
+            git diff HEAD~1 | npx argus-ai review --repo .
