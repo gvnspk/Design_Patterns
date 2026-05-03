@@ -1,1 +1,1 @@
-rootProject.name = "src"
+rootProject.name = "Design_Patterns"
