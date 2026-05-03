@@ -1,6 +1,6 @@
-package behavioral.strategy.ECommercePaymentSystem.payments.cards;
+package behavioral.strategy.ECommercePaymentSystem.payments;
 
-import behavioral.strategy.ECommercePaymentSystem.payments.PaymentStrategy;
+import behavioral.strategy.ECommercePaymentSystem.payments.cardServices.BinLookupService;
 import behavioral.strategy.ECommercePaymentSystem.payments.enums.CardNetwork;
 import behavioral.strategy.ECommercePaymentSystem.payments.enums.CardType;
 

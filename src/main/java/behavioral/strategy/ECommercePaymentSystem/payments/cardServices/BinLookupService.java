@@ -1,4 +1,4 @@
-package behavioral.strategy.ECommercePaymentSystem.payments.cards;
+package behavioral.strategy.ECommercePaymentSystem.payments.cardServices;
 
 import behavioral.strategy.ECommercePaymentSystem.payments.enums.CardNetwork;
 

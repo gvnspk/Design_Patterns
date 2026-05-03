@@ -1,7 +1,7 @@
 package org.example;
 
 
-import behavioral.strategy.ECommercePaymentSystem.payments.cards.CardPayment;
+import behavioral.strategy.ECommercePaymentSystem.payments.CardPayment;
 import behavioral.strategy.ECommercePaymentSystem.payments.NetBankingPayment;
 import behavioral.strategy.ECommercePaymentSystem.payments.cart.ShoppingCart;
 import behavioral.strategy.ECommercePaymentSystem.payments.enums.CardType;
