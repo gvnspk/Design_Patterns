@@ -1,8 +1,6 @@
-package behavioral.strategy.ECommercePaymentSystem.payments;
+package behavioral.strategy.ECommercePaymentSystem.payments.cards;
 
-import behavioral.strategy.ECommercePaymentSystem.payments.cards.BinLookupService;
-import behavioral.strategy.ECommercePaymentSystem.payments.cards.CreditPaymentHandler;
-import behavioral.strategy.ECommercePaymentSystem.payments.cards.DebitPaymentHandler;
+import behavioral.strategy.ECommercePaymentSystem.payments.PaymentStrategy;
 import behavioral.strategy.ECommercePaymentSystem.payments.enums.CardNetwork;
 import behavioral.strategy.ECommercePaymentSystem.payments.enums.CardType;
 
@@ -23,8 +21,6 @@ import behavioral.strategy.ECommercePaymentSystem.payments.enums.CardType;
 
 public class CardPayment implements PaymentStrategy {
 
-    private CreditPaymentHandler creditHandler = new CreditPaymentHandler();
-    private DebitPaymentHandler debitHandler = new DebitPaymentHandler();
 
     private final CardType cardType;
     private final String cardNumber;
@@ -48,13 +44,11 @@ public class CardPayment implements PaymentStrategy {
 
         switch (cardType){
             case CREDIT :
-                creditHandler.process(cardNumber,expiryDate,cvv,cardHolderName,cardServiceType);
-                creditHandler.pay(amount);
+                processCredit(amount, cardServiceType);
                 break;
 
             case DEBIT :
-                debitHandler.process(cardNumber,expiryDate,cvv,cardHolderName,cardServiceType);
-                debitHandler.pay(amount);
+                processDebit(amount, cardServiceType);
                 break;
 
             default:
@@ -66,5 +60,34 @@ public class CardPayment implements PaymentStrategy {
     @Override
     public String getPaymentMethodName() {
         return cardType.name() + " CARD";
+    }
+
+    private void processCredit(double amount, CardNetwork network){
+        System.out.println("Processing " + network + " Credit Card payment");
+
+        double fee = amount * 0.02;
+        double total = amount + fee;
+
+        System.out.println("Total Charged: " + total);
+        System.out.println("Card: " + maskCardNumber(cardNumber));
+
+    }
+
+    private void processDebit(double amount, CardNetwork network){
+        System.out.println("Processing " + network + " Debit Card payment");
+
+        double fee = amount * 0.01;
+        double total = amount + fee;
+
+        System.out.println("Total Charged: " + total);
+        System.out.println("Card: " + maskCardNumber(cardNumber));
+
+    }
+
+
+    private String maskCardNumber(String Number) {
+        String cleaned = Number.replaceAll("\\s","");
+        String lastFour = cleaned.substring(cleaned.length()-4);
+        return "**** **** **** "+lastFour;
     }
 }

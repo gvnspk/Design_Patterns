@@ -1,7 +1,7 @@
 package org.example;
 
 
-import behavioral.strategy.ECommercePaymentSystem.payments.CardPayment;
+import behavioral.strategy.ECommercePaymentSystem.payments.cards.CardPayment;
 import behavioral.strategy.ECommercePaymentSystem.payments.NetBankingPayment;
 import behavioral.strategy.ECommercePaymentSystem.payments.cart.ShoppingCart;
 import behavioral.strategy.ECommercePaymentSystem.payments.enums.CardType;
@@ -130,7 +130,7 @@ public class Main {
         System.out.println("╠══════════════════════════════════════════════════════╣");
         System.out.println("║  Roles in this demo:                                 ║");
         System.out.println("║   • PaymentStrategy     → Strategy Interface         ║");
-        System.out.println("║   • CreditCardPayment   → Concrete Strategy A        ║");
+        System.out.println("║   • CardPayment         → Concrete Strategy A        ║");
         System.out.println("║   • UPIPayment          → Concrete Strategy B        ║");
         System.out.println("║   • NetBankingPayment   → Concrete Strategy C        ║");
         System.out.println("║   • CashOnDelivery      → Concrete Strategy D        ║");
