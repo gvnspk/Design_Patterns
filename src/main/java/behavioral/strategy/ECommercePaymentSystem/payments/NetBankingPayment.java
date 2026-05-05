@@ -18,10 +18,10 @@ package behavioral.strategy.ECommercePaymentSystem.payments;
 public class NetBankingPayment implements PaymentStrategy {
 
     private final String bankName;
-    private final Long accountNumber;
+    private final String accountNumber;
     private final String username;
 
-    public NetBankingPayment (String bankName , Long accountNumber, String username){
+    public NetBankingPayment (String bankName , String accountNumber, String username){
 
         this.accountNumber = accountNumber;
         this.bankName = bankName;
@@ -61,15 +61,13 @@ public class NetBankingPayment implements PaymentStrategy {
         return "Net Banking - " + bankName;
     }
 
-    private String maskAccountNumber(Long acc){
-        String accountValue = String.valueOf(acc);
-        String lastFour = accountValue.substring(accountValue.length() - 4);
+    private String maskAccountNumber(String accountNumber){
+        String lastFour = accountNumber.substring(accountNumber.length() - 4);
         return "XXXXXXXX" + lastFour;
     }
 
-    private boolean validateAccountNumber(Long accountNumber){
-        String accountValue = String.valueOf(accountNumber);
-        return accountValue != null && accountValue.length() == 12;
+    private boolean validateAccountNumber(String accountNumber){
+        return accountNumber != null && accountNumber.length() == 12;
     }
 
 
