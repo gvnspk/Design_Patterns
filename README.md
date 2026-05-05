@@ -188,7 +188,7 @@ Design Patterns
 | Memento | Behavioral | ⬜ Not Started |
 | Observer | Behavioral | ⬜ Not Started |
 | State | Behavioral | ⬜ Not Started |
-| Strategy | Behavioral | ⬜ Not Started |
+| Strategy | Behavioral | ✅ Done |
 | Template Method | Behavioral | ⬜ Not Started |
 | Visitor | Behavioral | ⬜ Not Started |
 
